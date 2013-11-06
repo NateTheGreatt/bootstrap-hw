@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1= title
+    div
+    form.form-horizontal(method="post", action='/courses/update/#{id}', enctype="multipart/form-data")
+        .control-group
+            label.control-label(for='title') Course Title
+            .controls
+                input#title.input-input-xlarge(type='text', value="#{coursetitle}", name="title", placeholder='Enter the title')
+        .control-group
+            label.control-label(for='cid') Course ID
+            .controls
+                input#cid.input-input-xlarge(type='text', value="#{cid}", name="cid", placeholder='Enter the course ID')
+        .control-group
+            label.control-label(for='section') Section
+            .controls
+                input#title.input-input-xlarge(type='text', value="#{section}", name="section", placeholder='Enter the section')
+        .control-group
+            .controls
+                input(type='submit',value='Save')
+

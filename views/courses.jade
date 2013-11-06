@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    p Welcome to #{title}
+    div
+        table
+            thead
+                tr
+                    th Course ID
+                    th Course Name
+            tbody
+                each course, i in courses
+                    tr(class=(i % 2 == 0) ? 'odd' : 'even')
+                        td= course.cid
+                        td
+                            a(href='/courses/' + course._id) #{course.title}
+
+        form.form-horizontal(method="post", action='/courses/add', enctype="multipart/form-data")
+            .control-group
+                label.control-label(for='title') Course Title
+                .controls
+                    input#title.input-input-xlarge(type='text', name="title", placeholder='Enter the title')
+            .control-group
+                label.control-label(for='cid') Course ID
+                .controls
+                    input#cid.input-input-xlarge(type='text', name="cid", placeholder='Enter the course ID')
+            .control-group
+                label.control-label(for='section') Section
+                .controls
+                    input#title.input-input-xlarge(type='text', name="section", placeholder='Enter the section')
+            .control-group
+                .controls
+                    input(type='submit',value='Save')

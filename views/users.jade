@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  div
+    table
+      thead
+        tr 
+          th User Name
+      tbody
+        each user, i in users
+          tr(class=(i % 2 == 0) ? 'odd' : 'even')
+           td 
+              a(href='/users/' + user._id) #{user.username}
+    form.form-horizontal(method="post", action='/users/add', enctype="multipart/form-data")
+      .control-group
+        label.control-label(for='username') User Name
+        .controls
+          input#title.input-input-xlarge(type='text', name="username", placeholder='Enter the username')
+      .control-group
+        label.control-label(for='password') Password 
+        .controls
+          input#cid.input-input-xlarge(type='password', name="password", placeholder='Enter the password')
+      .control-group
+        .controls
+          input(type='submit',value='Save')
+

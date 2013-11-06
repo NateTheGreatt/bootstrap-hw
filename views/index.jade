@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    .row
+        h1= title
+        p Welcome to #{title}
+        div
+            table
+                thead
+                    tr
+                        th Course ID
+                        th Course Name
+                tbody
+                    each course, i in courses
+                        tr(class=(i % 2 == 0) ? 'odd' : 'even')
+                            td= course.cid
+                            td
+                                a(href='/courses/' + course._id) #{course.title}

@@ -1,0 +1,20 @@
+doctype 5
+html
+  head
+    title= title
+    block scripts
+      script(type='text/javascript', src="/scripts/jquery/jquery.js")
+      script(type='text/javascript', src="/scripts/underscore/underscore.js")
+      script(type='text/javascript', src="/scripts/backbone/backbone.js")
+      script(type='text/javascript', src="/scripts/require.js")
+      script(type='text/javascript', src="/scripts/main.js")
+      script(type='text/javascript', src="/scripts/bootstrap.js")
+  link(rel='stylesheet', href='/css/bootstrap.css')
+  link(rel='stylesheet', href='/css/style.css')
+
+  body
+    block nav
+      include nav
+
+    .container
+      block content
